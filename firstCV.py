@@ -1,16 +1,17 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-
-img = cv2.imread('diffractionpatternex.jpg', cv2.IMREAD_GRAYSCALE) #GRAYSCALE grayscales the image
+images = ['diffractionpatternex.jpg', 'dpat.jpeg']
+img = cv2.imread(images[1], cv2.IMREAD_GRAYSCALE) #GRAYSCALE grayscales the image
 #Other options for IMREAD_GRAYSCALE (0) are IMREAD_COLOR (1) and IMREAD_UNCHANGED (-1)
 print(img.shape)
 dimentions = img.shape
 
-print(int(img[0, 0]))
 middleIntensities = []
-for x in img[136]:
-    middleIntensities.append(int(img[dimentions[0]/2][x]))
+print(img[dimentions[0]/2])
+for x in img[dimentions[0]/2]:
+    print(x)
+    middleIntensities.append(x)
 print(middleIntensities)
 cv2.line(img, (0, dimentions[0]/2), (dimentions[1], dimentions[0]/2), (0, 0, 0), 3)
 plt.plot(middleIntensities)
